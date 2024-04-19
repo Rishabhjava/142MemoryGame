@@ -52,8 +52,22 @@ display:block;text-align:center;}
 #g .found{display:inline-block}
 .card{display:inline-block;-webkit-perspective:1000;-moz-perspective:1000;}
 .card:not(.active):hover{opacity:.8}
-.card .b::before{content:attr(data-f);display:block;font:normal 100px/100px "GeneralFoundicons";
-position:absolute;top:50%;margin-top:-50px;width:100%;text-align:center}
+.card .b::before {
+	content: attr(data-f); /* This will display the text from the data-f attribute */
+	display: block;
+	font-size: 10px; /* Adjust font size as needed */
+	line-height: 1; /* Typically the same as font size for icons, may need to be adjusted for text */
+	color: #fff; /* Text color, assuming a dark background */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center the pseudo-element */
+	text-align: center; /* Center the text within the pseudo-element */
+	white-space: nowrap; /* Ensure the text stays on a single line */
+	overflow: hidden; /* Hide overflow to maintain the card's appearance */
+	width: 90%; /* Adjust width to fit content */
+	max-width: 100%; /* Ensure it doesn't exceed the parent element */
+  }
 
 .flipper {position:relative;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d}
 .f, .b {position:absolute;top:0;left:0;box-shadow:inset 0 0 0 1px #333;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden}
@@ -67,8 +81,13 @@ position:absolute;top:50%;margin-top:-50px;width:100%;text-align:center}
 .logo .f, .card .b::before, .pause::before{-webkit-text-stroke: 1px #fff}
 
 @media all and (max-width: 1680px) and (min-width: 640px){
-	.card .b::before{font-size:90px}
-	#g.medium .card .b::before{font-size:70px}
+	.card .b::before {
+		font-size: 15px; /* Small font size */
+		font-weight: lighter; /* Lighter font weight */
+		white-space: normal; /* Allows text to wrap */
+		word-wrap: break-word; /* Ensures words are broken if needed to prevent overflow */
+	  }
+	#g.medium .card .b::before{font-size:15px}
 	#g.hard .card .b::before{font-size:50px}
 }
 @media all and (max-width: 640px) and (min-width: 470px){
@@ -88,7 +107,7 @@ position:absolute;top:50%;margin-top:-50px;width:100%;text-align:center}
 	.logo{width:300px;height:300px;margin:-150px 0 0 -150px}
 	.logo .f{font:normal 80px/150px 'Open Sans'}
 	.logo .contentbox h2{font-size:16px;margin:24px 0;}
-	.logo .instructions h2{display:none}
+	.logo .instructions h2{display:none;font-size: 1rem;}
 	.logo .instructions.contentbox p:nth-child(3){display:none}
 	#stats li b{width:auto}
 }
